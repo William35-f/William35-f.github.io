@@ -4,9 +4,9 @@ import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import WorkList from "@/components/WorkList";
 import ProjectGrid from "@/components/ProjectGrid";
-import RoundButton from "@/components/RoundButton";
+import AboutPhoto from "@/components/AboutPhoto";
 import { Certifications, Skills, Timeline } from "@/components/Credentials";
-import { profile, projects, stats } from "@/data/site";
+import { projects, stats } from "@/data/site";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
 
       <section id="about" className="section-pad py-32 md:py-44">
-        <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_auto]">
+        <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_auto] md:gap-24">
           <div>
             <p className="label mb-8"><span className="text-accent">01</span> About</p>
             <ScrollText
@@ -32,10 +32,8 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="flex items-start justify-center md:pt-24">
-            <RoundButton href={profile.resumes[0].href} external size={180}>
-              Download resume
-            </RoundButton>
+          <div className="pb-12 pl-10 md:pt-8 md:pl-0">
+            <AboutPhoto />
           </div>
         </div>
       </section>
