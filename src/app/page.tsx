@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <section id="about" className="section-pad py-32 md:py-44">
+      <section id="about" className="section-pad relative z-10 -mt-[100svh] rounded-t-[2rem] border-t border-line bg-ink py-32 shadow-[0_-30px_80px_rgba(0,0,0,0.6)] md:rounded-t-[3rem] md:py-44">
         <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_auto] md:gap-24">
           <div>
             <p className="label mb-8"><span className="text-accent">01</span> About</p>

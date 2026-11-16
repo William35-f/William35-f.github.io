@@ -25,14 +25,22 @@ function Line({ children, delay, go }: { children: React.ReactNode; delay: numbe
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 220]);
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  // The hero stays pinned for one viewport while the next section slides over it.
+  // On the way out the sky blurs, pushes in and dims, so it reads as depth of field.
+  const { scrollYProgress } = useScroll({ target: wrapRef, offset: ["start start", "end end"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const fade = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+  const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(14px)"]);
+  const zoom = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const dim = useTransform(scrollYProgress, [0, 1], [0, 0.6]);
   const go = useIntroDone();
   const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
-    <section ref={ref} className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
+    <div ref={wrapRef} className="relative h-[200svh]">
+    <section ref={ref} className="sticky top-0 flex h-svh flex-col justify-end overflow-hidden">
+      <motion.div style={{ filter: blur, scale: zoom }} className="absolute inset-0 will-change-transform">
       {BACKGROUND === "nebula" ? (
         <div className="absolute inset-0">
           <HalftoneNebula height="100%" preset="lime" params={NEBULA_PARAMS} eventTarget={ref} className="!bg-ink" />
@@ -43,6 +51,8 @@ export default function Hero() {
         <NeuralField />
       )}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--ink)_85%)]" />
+      </motion.div>
+      <motion.div aria-hidden style={{ opacity: dim }} className="pointer-events-none absolute inset-0 bg-ink" />
 
       <motion.div style={{ y, opacity: fade }} className="section-pad relative z-10 pb-10 pt-32">
         <motion.div
@@ -88,7 +98,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="relative z-10 overflow-hidden border-t border-line py-3">
+      <motion.div style={{ opacity: fade }} className="relative z-10 overflow-hidden border-t border-line py-3">
         <motion.div style={{ x: marqueeX }}>
           <div className="marquee font-mono flex w-max whitespace-nowrap text-xs uppercase tracking-[0.12em] text-paper/45 md:text-[13px]">
             {Array.from({ length: 2 }).map((_, k) => (
@@ -102,7 +112,8 @@ export default function Hero() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
+    </div>
   );
 }
