@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Magnetic from "./Magnetic";
+import SlideTabs from "./SlideTabs";
 import { profile } from "@/data/site";
 
 const links = [
@@ -43,18 +44,11 @@ export default function Nav() {
         </Magnetic>
         </div>
         <nav
-          className={`pointer-events-auto hidden items-center gap-1 rounded-full border px-2 py-1 transition-all duration-500 md:flex ${
+          className={`pointer-events-auto hidden items-center rounded-full border p-1 transition-all duration-500 md:flex ${
             scrolled ? "border-line bg-ink/70 backdrop-blur-md" : "border-transparent"
           }`}
         >
-          {links.map((l) => (
-            <Magnetic key={l.href} strength={0.3}>
-              <Link href={l.href} className="group relative px-3 py-2">
-                {l.label}
-                <span className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 scale-0 rounded-full bg-accent transition-transform duration-300 group-hover:scale-100" />
-              </Link>
-            </Magnetic>
-          ))}
+          <SlideTabs items={links} />
         </nav>
         <button
           onClick={() => setOpen(true)}
