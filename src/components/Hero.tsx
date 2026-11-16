@@ -4,8 +4,8 @@ import { useRef } from "react";
 import NeuralField from "./NeuralField";
 import CosmicSynapseCanvas from "./ui/neurons-hero";
 
-// Hero background: "synapse" (3D neuron sphere, live) or "network" (the original 2D network, kept as a backup).
-const BACKGROUND: "synapse" | "network" = "synapse";
+// Hero background: "synapse" (3D neuron sphere, kept as an option) or "network" (the original 2D network, live).
+const BACKGROUND: "synapse" | "network" = "network";
 import { profile } from "@/data/site";
 import { useIntroDone } from "@/lib/intro";
 
