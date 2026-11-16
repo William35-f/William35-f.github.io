@@ -2,6 +2,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import NeuralField from "./NeuralField";
+import CosmicSynapseCanvas from "./ui/neurons-hero";
+
+// Hero background: "synapse" (3D neuron sphere, live) or "network" (the original 2D network, kept as a backup).
+const BACKGROUND: "synapse" | "network" = "synapse";
 import { profile } from "@/data/site";
 import { useIntroDone } from "@/lib/intro";
 
@@ -27,7 +31,7 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
-      <NeuralField />
+      {BACKGROUND === "synapse" ? <CosmicSynapseCanvas /> : <NeuralField />}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--ink)_85%)]" />
 
       <motion.div style={{ y, opacity: fade }} className="section-pad relative z-10 pb-10 pt-32">
