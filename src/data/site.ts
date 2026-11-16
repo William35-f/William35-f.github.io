@@ -347,23 +347,25 @@ export const education = [
     detail: "Diploma in Applied AI & Analytics",
     period: "Expected 2028",
     notes: ["GPA 3.95 / 4.00", "Machine Learning, Deep Learning, Data Structures & Algorithms, Databases"],
+    file: undefined as string | undefined,
   },
   {
     school: "Cambridge IGCSE",
     detail: "Institute of International Professionalism, Myanmar",
     period: "2024",
     notes: ["7 subjects: 5 A*, 2 A", "A* in Biology, Computer Science, ICT, Mathematics, Physics"],
+    file: "/certificates/Cambridge_IGCSE_redacted.pdf",
   },
 ];
 
 export const certifications = [
-  { name: "Fundamentals of Deep Learning", issuer: "NVIDIA Deep Learning Institute", date: "Jul 2026", highlight: true },
-  { name: "Generative AI Concepts", issuer: "DataCamp", date: "Jul 2026" },
-  { name: "Introduction to Deep Learning with Keras", issuer: "DataCamp", date: "Apr 2026" },
-  { name: "Introduction to Data Science in Python", issuer: "DataCamp", date: "Nov 2025" },
-  { name: "Supervised Learning with scikit-learn", issuer: "DataCamp", date: "Nov 2025" },
-  { name: "Masterclass in Public Speaking", issuer: "Speech Academy Asia", date: "Nov 2025" },
-  { name: "Intermediate Python for Developers", issuer: "DataCamp", date: "Oct 2025" },
+  { name: "Fundamentals of Deep Learning", file: "/certificates/NVIDIA_Fundamentals_of_Deep_Learning.pdf", issuer: "NVIDIA Deep Learning Institute", date: "Jul 2026", highlight: true },
+  { name: "Generative AI Concepts", file: "/certificates/DataCamp_Generative_AI_Concepts.pdf", issuer: "DataCamp", date: "Jul 2026" },
+  { name: "Introduction to Deep Learning with Keras", file: "/certificates/DataCamp_Intro_to_Deep_Learning_with_Keras.pdf", issuer: "DataCamp", date: "Apr 2026" },
+  { name: "Introduction to Data Science in Python", file: "/certificates/DataCamp_Intro_to_Data_Science_in_Python.pdf", issuer: "DataCamp", date: "Nov 2025" },
+  { name: "Supervised Learning with scikit-learn", file: "/certificates/DataCamp_Supervised_Learning_with_scikit-learn.pdf", issuer: "DataCamp", date: "Nov 2025" },
+  { name: "Masterclass in Public Speaking", file: "/certificates/Speech_Academy_Asia_Public_Speaking.pdf", issuer: "Speech Academy Asia", date: "Nov 2025" },
+  { name: "Intermediate Python for Developers", file: "/certificates/DataCamp_Intermediate_Python_for_Developers.pdf", issuer: "DataCamp", date: "Oct 2025" },
 ];
 
 export type Semester = {

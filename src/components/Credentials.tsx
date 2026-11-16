@@ -55,6 +55,11 @@ export function Timeline() {
                 {e.notes.map((n) => (
                   <p key={n} className="mt-2 text-paper/70">{n}</p>
                 ))}
+                {e.file && (
+                  <a href={e.file} target="_blank" rel="noreferrer" className="label mt-4 inline-block !text-accent hover:underline">
+                    View certificate ↗
+                  </a>
+                )}
               </li>
             </Reveal>
           ))}
@@ -69,13 +74,22 @@ export function Certifications() {
     <ul className="border-b border-line">
       {certifications.map((c, i) => (
         <Reveal key={c.name} delay={i * 0.04}>
-          <li className="group grid grid-cols-[1fr_auto] items-center gap-4 border-t border-line py-5 transition-colors hover:bg-ink-2 md:grid-cols-[1fr_16rem_6rem] md:px-4">
+          <li className="group grid grid-cols-[1fr_auto] items-center gap-4 border-t border-line py-5 transition-colors hover:bg-ink-2 md:grid-cols-[1fr_14rem_6rem_9rem] md:px-4">
             <span className="font-display text-xl md:text-2xl">
               {c.highlight && <span className="mr-2 text-accent">★</span>}
               {c.name}
+              <span className="mt-1 block font-sans text-sm tracking-normal text-paper/60 md:hidden">{c.issuer} · {c.date}</span>
             </span>
             <span className="hidden text-sm text-paper/60 md:block">{c.issuer}</span>
-            <span className="label text-right">{c.date}</span>
+            <span className="label hidden text-right md:block">{c.date}</span>
+            <a
+              href={c.file}
+              target="_blank"
+              rel="noreferrer"
+              className="justify-self-end rounded-full border border-line px-4 py-2 text-xs transition-colors hover:border-accent hover:bg-accent hover:text-ink"
+            >
+              View PDF ↗
+            </a>
           </li>
         </Reveal>
       ))}
