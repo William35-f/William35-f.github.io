@@ -365,3 +365,65 @@ export const certifications = [
   { name: "Masterclass in Public Speaking", issuer: "Speech Academy Asia", date: "Nov 2025" },
   { name: "Intermediate Python for Developers", issuer: "DataCamp", date: "Oct 2025" },
 ];
+
+export type Semester = {
+  term: string;
+  stage: string;
+  programme: string;
+  gpa: string;
+  cumulative: string;
+  modules: { code: string; name: string; grade: string; credits: number }[];
+};
+
+// From official SP examination results slips (admission number left out on purpose).
+export const transcript: Semester[] = [
+  {
+    term: "AY2025/26 Semester 1",
+    stage: "Year 1A",
+    programme: "Common Infocomm Technology Programme",
+    gpa: "3.91",
+    cumulative: "3.91",
+    modules: [
+      { code: "ST0523", name: "Fundamentals of Programming", grade: "DIST", credits: 5 },
+      { code: "ST0501", name: "Front-End Web Development", grade: "A", credits: 5 },
+      { code: "ST2413", name: "Fundamentals of Computing", grade: "A", credits: 4 },
+      { code: "MS0105", name: "Mathematics", grade: "B+", credits: 4 },
+      { code: "CC1001", name: "Thinking Critically about the UN SDGs", grade: "A", credits: 2 },
+      { code: "CC1007", name: "Collaboration in the Digital Age", grade: "A", credits: 1 },
+      { code: "CC2003", name: "Artificial Intelligence & Its Impact", grade: "A", credits: 1 },
+      { code: "CC3005", name: "Problem Solving with Creative and Computational Thinking", grade: "A", credits: 1 },
+    ],
+  },
+  {
+    term: "AY2025/26 Semester 2",
+    stage: "Year 1B",
+    programme: "Diploma in Applied AI & Analytics",
+    gpa: "3.94",
+    cumulative: "3.93",
+    modules: [
+      { code: "ST0503", name: "Back-End Web Development", grade: "A", credits: 6 },
+      { code: "ST1510", name: "Programming for Data Analytics", grade: "A", credits: 5 },
+      { code: "ST1511", name: "AI and Machine Learning", grade: "A", credits: 5 },
+      { code: "EP0601", name: "Advanced Mathematics 1", grade: "A", credits: 4 },
+      { code: "MS0141", name: "Statistics for Data Science", grade: "A", credits: 3 },
+      { code: "CC2002", name: "Data Fluency", grade: "B+", credits: 1 },
+      { code: "CC1008", name: "Effective Writing for the Workplace", grade: "B", credits: 1 },
+    ],
+  },
+  {
+    term: "AY2026/27 Semester 1",
+    stage: "Year 2A",
+    programme: "Diploma in Applied AI & Analytics",
+    gpa: "4.00",
+    cumulative: "3.95",
+    modules: [
+      { code: "ST1501", name: "Data Engineering", grade: "A", credits: 5 },
+      { code: "ST1504", name: "Deep Learning", grade: "A", credits: 5 },
+      { code: "ST1507", name: "Data Structures and Algorithms (AI)", grade: "A", credits: 4 },
+      { code: "EP0814", name: "Game Environment Creation", grade: "A", credits: 4 },
+      { code: "CC3004", name: "Persuasive Communication with Data Storytelling", grade: "A", credits: 2 },
+      { code: "CC1009", name: "Personal Branding and Career Agility", grade: "A", credits: 2 },
+      { code: "CC1006", name: "Digital Communication for Impact", grade: "A", credits: 1 },
+    ],
+  },
+];

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import WorkList from "@/components/WorkList";
 import ProjectGrid from "@/components/ProjectGrid";
+import Transcript from "@/components/Transcript";
 import AboutPhoto from "@/components/AboutPhoto";
 import { Certifications, Skills, Timeline } from "@/components/Credentials";
 import { projects, stats } from "@/data/site";
@@ -66,9 +67,16 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="academics" className="section-pad pb-32">
+        <div className="mx-auto max-w-6xl">
+          <SectionHead index="06" kicker="Singapore Polytechnic" title={<>Academic <span className="text-accent">record</span></>} />
+          <Transcript />
+        </div>
+      </section>
+
       <section id="certifications" className="section-pad pb-40">
         <div className="mx-auto max-w-6xl">
-          <SectionHead index="06" kicker="Always learning" title="Certifications" />
+          <SectionHead index="07" kicker="Always learning" title="Certifications" />
           <Certifications />
         </div>
       </section>
