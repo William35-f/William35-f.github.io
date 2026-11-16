@@ -28,7 +28,8 @@ export default function Nav() {
 
   return (
     <>
-      <header className="section-pad absolute left-0 right-0 top-0 z-40 flex items-center justify-between py-6 text-sm">
+      <header className="section-pad pointer-events-none fixed left-0 right-0 top-0 z-40 flex items-center justify-between py-6 text-sm">
+        <div className={`transition-all duration-500 ${scrolled ? "-translate-y-4 opacity-0" : "pointer-events-auto opacity-100"}`}>
         <Magnetic strength={0.2}>
           <Link href="/" className="group flex items-center gap-2">
             <span className="inline-block transition-transform duration-500 group-hover:rotate-[360deg]">©</span>
@@ -40,7 +41,12 @@ export default function Nav() {
             </span>
           </Link>
         </Magnetic>
-        <nav className="hidden items-center gap-2 md:flex">
+        </div>
+        <nav
+          className={`pointer-events-auto hidden items-center gap-1 rounded-full border px-2 py-1 transition-all duration-500 md:flex ${
+            scrolled ? "border-line bg-ink/70 backdrop-blur-md" : "border-transparent"
+          }`}
+        >
           {links.map((l) => (
             <Magnetic key={l.href} strength={0.3}>
               <Link href={l.href} className="group relative px-3 py-2">
@@ -50,7 +56,11 @@ export default function Nav() {
             </Magnetic>
           ))}
         </nav>
-        <button onClick={() => setOpen(true)} className="md:hidden" aria-label="Open menu">
+        <button
+          onClick={() => setOpen(true)}
+          className={`transition-opacity duration-300 md:hidden ${scrolled ? "opacity-0" : "pointer-events-auto"}`}
+          aria-label="Open menu"
+        >
           Menu
         </button>
       </header>
@@ -58,7 +68,7 @@ export default function Nav() {
       <AnimatePresence>
         {(scrolled || open) && (
           <motion.div
-            className="fixed right-4 top-4 z-[60] md:right-8 md:top-8"
+            className={`fixed right-4 top-4 z-[60] md:right-8 md:top-8 ${open ? "" : "md:hidden"}`}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
