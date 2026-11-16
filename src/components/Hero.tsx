@@ -76,7 +76,7 @@ export default function Hero() {
 
       <div className="relative z-10 overflow-hidden border-t border-line py-3">
         <motion.div style={{ x: marqueeX }}>
-          <div className="marquee font-display flex w-max whitespace-nowrap text-xs uppercase tracking-[0.12em] text-paper/45 md:text-[13px]">
+          <div className="marquee font-mono flex w-max whitespace-nowrap text-xs uppercase tracking-[0.12em] text-paper/45 md:text-[13px]">
             {Array.from({ length: 2 }).map((_, k) => (
               <span key={k} aria-hidden={k === 1} className="flex shrink-0">
                 {["RAG", "LLM agents", "TensorFlow", "FastAPI", "React", "Power BI", "SQL", "Deep learning", "Evaluation", "Python", "MongoDB", "Computer vision"].map((t) => (
