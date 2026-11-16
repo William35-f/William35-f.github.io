@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  --font-display: "Bricolage Grotesque Variable";
+  --font-body: "Inter Variable";
+  --font-mono: "JetBrains Mono";
+  --font-myanmar: "Noto Sans Myanmar";
   --ink: #0d0d10;
   --ink-2: #16161b;
   --paper: #f3f1ec;
