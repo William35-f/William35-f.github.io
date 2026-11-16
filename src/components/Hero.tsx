@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import NeuralField from "./NeuralField";
+import NeuronField from "./NeuronField";
 import { profile } from "@/data/site";
 import { useIntroDone } from "@/lib/intro";
 
@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
-      <NeuralField />
+      <NeuronField />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--ink)_85%)]" />
 
       <motion.div style={{ y, opacity: fade }} className="section-pad relative z-10 pb-10 pt-32">
