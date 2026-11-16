@@ -3,9 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import NeuralField from "./NeuralField";
 import CosmicSynapseCanvas from "./ui/neurons-hero";
+import HalftoneNebula from "./ui/halftone-nebula";
 
 // Hero background: "synapse" (3D neuron sphere, kept as an option) or "network" (the original 2D network, live).
-const BACKGROUND: "synapse" | "network" = "network";
+const BACKGROUND = "nebula" as "synapse" | "network" | "nebula";
+const NEBULA_PARAMS = { planetX: 0.8, planetY: 0.7 };
 import { profile } from "@/data/site";
 import { useIntroDone } from "@/lib/intro";
 
@@ -31,7 +33,15 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
-      {BACKGROUND === "synapse" ? <CosmicSynapseCanvas /> : <NeuralField />}
+      {BACKGROUND === "nebula" ? (
+        <div className="absolute inset-0">
+          <HalftoneNebula height="100%" preset="lime" params={NEBULA_PARAMS} eventTarget={ref} className="!bg-ink" />
+        </div>
+      ) : BACKGROUND === "synapse" ? (
+        <CosmicSynapseCanvas />
+      ) : (
+        <NeuralField />
+      )}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--ink)_85%)]" />
 
       <motion.div style={{ y, opacity: fade }} className="section-pad relative z-10 pb-10 pt-32">
