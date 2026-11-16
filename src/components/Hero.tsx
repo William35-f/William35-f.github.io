@@ -23,7 +23,7 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 220]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const go = useIntroDone();
-  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
     <section ref={ref} className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
@@ -74,17 +74,19 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="relative z-10 overflow-hidden border-t border-line py-5">
-        <motion.div style={{ x: marqueeX }} className="font-display flex gap-10 whitespace-nowrap text-2xl text-paper/40 md:text-3xl">
-          {Array.from({ length: 3 }).map((_, k) => (
-            <span key={k} className="flex gap-10">
-              {["RAG", "LLM agents", "TensorFlow", "FastAPI", "React", "Power BI", "SQL", "Deep learning", "Evaluation"].map((t) => (
-                <span key={t} className="flex items-center gap-10">
-                  {t} <span className="text-accent">✦</span>
-                </span>
-              ))}
-            </span>
-          ))}
+      <div className="relative z-10 overflow-hidden border-t border-line py-4">
+        <motion.div style={{ x: marqueeX }}>
+          <div className="marquee font-display flex w-max whitespace-nowrap text-base text-paper/45 md:text-lg">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <span key={k} aria-hidden={k === 1} className="flex shrink-0">
+                {["RAG", "LLM agents", "TensorFlow", "FastAPI", "React", "Power BI", "SQL", "Deep learning", "Evaluation", "Python", "MongoDB", "Computer vision"].map((t) => (
+                  <span key={t} className="flex items-center gap-6 pr-6">
+                    {t} <span className="text-xs text-accent">✦</span>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

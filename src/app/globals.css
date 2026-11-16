@@ -71,3 +71,15 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Endless hero marquee: two identical halves, slide one half-width and loop. */
+.marquee {
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
